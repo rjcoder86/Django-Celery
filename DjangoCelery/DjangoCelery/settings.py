@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-#5*gg*efqp4*0ovb49k5q&b^-^$&3(55ocak#dl*#w74+(6d11
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'app',
 ]
 
 MIDDLEWARE = [
@@ -121,3 +122,22 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+
+#CELERY settings
+
+CELERY_TIMEZONE='Asia/Kolkata'
+CELERY_BROKER_URL= 'redis://127.0.0.1:6379'
+CELERY_ACCEPT_CONTENT=['application/json']
+CELERY_RESULT_SERIALIZER='json'
+CELERY_TASK_SERIALIZER= 'json'
+
+
+# Email Configuration
+EMAIL_BACKEND="django.core.mail.backends.smtp.EmailBackend"
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'chintayseniorcare@gmail.com'
+EMAIL_HOST_PASSWORD = 'hvgekpyfdtfjkyeg'
+EMAIL_USE_TLS = True
